@@ -1,10 +1,15 @@
+" Install nodejs = 12.0
+" Have nvim > 0.5
+" install yarn and compile coc
+" UpdateRemotePlugin
+
 " Install Caskaydia Cove nerd fonts
 
 "for linux ~/.config/nvim/autoload/plug.vim at vim-plug repo
 filetype off
 set nocompatible " Reject Vi, be iMproved.
 
-call plug#begin('~\AppData\Local\nvim\plugged')
+call plug#begin('~/AppData/Local/nvim/plugged')
 " put plugins here
 Plug 'preservim/nerdtree'
 Plug 'mhinz/vim-startify'
@@ -18,6 +23,8 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'APZelos/blamer.nvim'
 Plug 'morhetz/gruvbox'
 Plug 'numirias/semshi'
+Plug 'romgrk/barbar.nvim'
+Plug 'kyazdani42/nvim-web-devicons'
 call plug#end()
 
 filetype plugin indent on
@@ -42,15 +49,14 @@ set noswapfile
 set termguicolors " override the terminal emulator's colorscheme
 set cursorline
 
+source ~\AppData\Local\nvim\plug-config\coc.vim 
+
 " initialize gruvbox attribute before set it as a colorscheme
-let g:gruvbox_contrast_dark='hard'
+let g:gruvbox_contrast_dark='soft'
 let g:gruvbox_italic=1
 let g:gruvbox_improved_warnings = 1
 let g:gruvbox_italicize_comments = 1
 colorscheme gruvbox
-
-" don't know why i put this here but whatever
-source ~\AppData\Local\nvim\plug-config\coc.vim
 
 " blamer
 let g:blamer_enabled = 1
@@ -86,6 +92,22 @@ let g:airline_powerline_fonts = 1
 " Shift + w to close the current tab
 vnoremap <C-S> :update<CR>
 nnoremap <C-S> :update<cr>
-inoremap <C-S> <Esc>:update<cr>gi
+inoremap <C-S> :update<cr>gi
 map <silent> <C-n> :NERDTreeFocus<CR>
-map <silent> <S-w> :q<CR>
+
+" Move to previous/next
+nnoremap <silent>    <A-,> :BufferPrevious<CR>
+nnoremap <silent>    <A-.> :BufferNext<CR>
+nnoremap <silent>    <A-w> :BufferClose<CR>
+
+nnoremap <silent>    <S-w> :q!<CR>
+
+nnoremap <silent>    <A-1> :BufferGoto 1<CR>
+nnoremap <silent>    <A-2> :BufferGoto 2<CR>
+nnoremap <silent>    <A-3> :BufferGoto 3<CR>
+nnoremap <silent>    <A-4> :BufferGoto 4<CR>
+nnoremap <silent>    <A-5> :BufferGoto 5<CR>
+nnoremap <silent>    <A-6> :BufferGoto 6<CR>
+nnoremap <silent>    <A-7> :BufferGoto 7<CR>
+nnoremap <silent>    <A-8> :BufferGoto 8<CR>
+nnoremap <silent>    <A-9> :BufferLast<CR>

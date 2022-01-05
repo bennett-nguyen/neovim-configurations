@@ -7,6 +7,7 @@ This repository stores all of my configurations for neovim
 <br>
 
 **UI**:
+<br>
 Color Scheme: gruvbox
 <br>
 Nerd Font: Caskaydia Cove
@@ -23,6 +24,7 @@ Start screen: vim-startify
 <br>
 
 **Utilities**:
+<br>
 Code Completion: coc.vim
 <br>
 Git utilites: vim-fugitive, blamer.nvim
