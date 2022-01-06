@@ -4,8 +4,11 @@
 " UpdateRemotePlugin
 
 " Install Caskaydia Cove nerd fonts
+" --> sudo apt-get install gnome-tweaks
+"  Set system font to caskaydia cove
+"  leave the custom fonts box uncheck
 
-"for linux ~/.config/nvim/autoload/plug.vim at vim-plug repo
+
 filetype off
 set nocompatible " Reject Vi, be iMproved.
 
