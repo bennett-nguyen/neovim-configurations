@@ -19,12 +19,15 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'ryanoasis/vim-devicons'
 Plug 'neoclide/coc.nvim' 
 Plug 'tpope/vim-fugitive'
+Plug 'akinsho/toggleterm.nvim'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'APZelos/blamer.nvim'
 Plug 'morhetz/gruvbox'
 Plug 'numirias/semshi'
 Plug 'romgrk/barbar.nvim'
 Plug 'kyazdani42/nvim-web-devicons'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 call plug#end()
 
 filetype plugin indent on
@@ -58,9 +61,36 @@ let g:gruvbox_improved_warnings = 1
 let g:gruvbox_italicize_comments = 1
 colorscheme gruvbox
 
+" toggleterm
+autocmd TermEnter term://*toggleterm#*
+      \ tnoremap <silent><c-t> <Cmd>exe v:count1 . "ToggleTerm"<CR>
+
+" By applying the mappings this way you can pass a count to your
+" mapping to open a specific window.
+" For example: 2<C-t> will open termina 2
+nnoremap <silent><c-t> <Cmd>exe v:count1 . "ToggleTerm size=10"<CR>
+inoremap <silent><c-t> <Esc><Cmd>exe v:count1 . "ToggleTerm size=10"<CR>
+
 " blamer
 let g:blamer_enabled = 1
 let g:blamer_delay = 500
+
+" nerdtree git
+let g:NERDTreeGitStatusIndicatorMapCustom = {
+                \ 'Modified'  :'✹',
+                \ 'Staged'    :'✚',
+                \ 'Untracked' :'✭',
+                \ 'Renamed'   :'➜',
+                \ 'Unmerged'  :'═',
+                \ 'Deleted'   :'✖',
+                \ 'Dirty'     :'✗',
+                \ 'Ignored'   :'☒',
+                \ 'Clean'     :'✔︎',
+                \ 'Unknown'   :'?',
+                \ }
+
+let g:NERDTreeGitStatusShowIgnored = 1
+let g:NERDTreeGitStatusUseNerdFonts = 1
 
 " extra syntax highlighter for python
 function MyCustomHighlights()
