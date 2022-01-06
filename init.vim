@@ -9,7 +9,7 @@
 filetype off
 set nocompatible " Reject Vi, be iMproved.
 
-call plug#begin('~/AppData/Local/nvim/plugged')
+call plug#begin('~/.config/nvim/plugged')
 " put plugins here
 Plug 'preservim/nerdtree'
 Plug 'mhinz/vim-startify'
@@ -31,7 +31,6 @@ Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 call plug#end()
 
 filetype plugin indent on
-lan en_US
 set encoding=utf-8
 set number
 
@@ -52,7 +51,6 @@ set noswapfile
 set termguicolors " override the terminal emulator's colorscheme
 set cursorline
 
-source ~\AppData\Local\nvim\plug-config\coc.vim 
 
 " initialize gruvbox attribute before set it as a colorscheme
 let g:gruvbox_contrast_dark='soft'
