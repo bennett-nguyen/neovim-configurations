@@ -8,6 +8,22 @@
 "  Set system font to caskaydia cove
 "  leave the custom fonts box uncheck
 
+" lua << EOF
+" require"toggleterm".setup{
+"   size = 12,
+"   shade_filetypes = {},
+"   open_mapping = [[<c-\>]],
+"   direction='float',
+"   float_opts = {
+"       border = 'curved',
+"       winblend = 0,
+"       highlights = {
+"           border = 'Normal',
+"           background = 'Normal'
+"       }
+"   }
+" }
+
 
 filetype off
 set nocompatible " Reject Vi, be iMproved.
