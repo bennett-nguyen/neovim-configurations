@@ -66,6 +66,11 @@ colorscheme gruvbox
 autocmd TermEnter term://*toggleterm#*
       \ tnoremap <silent><c-t> <Cmd>exe v:count1 . "ToggleTerm"<CR>
 
+" barbar
+let bufferline = get(g:, 'bufferline', {})
+set mouse+=a
+let bufferline.animation = v:true
+
 " By applying the mappings this way you can pass a count to your
 " mapping to open a specific window.
 " For example: 2<C-t> will open termina 2
