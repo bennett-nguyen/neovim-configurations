@@ -5,7 +5,25 @@
 
 " Install Caskaydia Cove nerd fonts
 
-"for linux ~/.config/nvim/autoload/plug.vim at vim-plug repo
+" add this to toggleterm plugin file   
+" lua << EOF
+" require"toggleterm".setup{
+"  size = 12,
+"  shade_filetypes = {},
+"  open_mapping = [[<c-\>]],
+"  direction='float',
+"  float_opts = {
+"      border = 'curved',
+"      winblend = 0,
+"      highlights = {
+"          border = 'Normal',
+"          background = 'Normal'
+"      }
+"  }
+"}
+"EOF
+
+
 filetype off
 set nocompatible " Reject Vi, be iMproved.
 
@@ -53,7 +71,7 @@ set termguicolors " override the terminal emulator's colorscheme
 set cursorline
 
 source ~\AppData\Local\nvim\plug-config\coc.vim 
-
+source $VIMRUNTIME/mswin.vim
 " initialize gruvbox attribute before set it as a colorscheme
 let g:gruvbox_contrast_dark='soft'
 let g:gruvbox_italic=1
@@ -74,6 +92,11 @@ inoremap <silent><c-t> <Esc><Cmd>exe v:count1 . "ToggleTerm size=7"<CR>
 " blamer
 let g:blamer_enabled = 1
 let g:blamer_delay = 500
+
+" barbar
+let bufferline = get(g:, 'bufferline', {})
+set mouse+=a
+let bufferline.animation = v:true
 
 " nerdtree git
 let g:NERDTreeGitStatusIndicatorMapCustom = {
