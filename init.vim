@@ -7,21 +7,6 @@
 
 " add this to toggleterm plugin file   
 " lua << EOF
-" require"toggleterm".setup{
-"  size = 12,
-"  shade_filetypes = {},
-"  open_mapping = [[<c-\>]],
-"  direction='float',
-"  float_opts = {
-"      border = 'curved',
-"      winblend = 0,
-"      highlights = {
-"          border = 'Normal',
-"          background = 'Normal'
-"      }
-"  }
-"}
-"EOF
 
 
 filetype off
@@ -31,6 +16,7 @@ call plug#begin('~/AppData/Local/nvim/plugged')
 " put plugins here
 Plug 'preservim/nerdtree'
 Plug 'mhinz/vim-startify'
+Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'chun-yang/auto-pairs'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -89,6 +75,34 @@ autocmd TermEnter term://*toggleterm#*
 nnoremap <silent><c-t> <Cmd>exe v:count1 . "ToggleTerm size=7"<CR>
 inoremap <silent><c-t> <Esc><Cmd>exe v:count1 . "ToggleTerm size=7"<CR>
 
+" indent
+lua << EOF
+vim.opt.list = true
+vim.opt.listchars:append("space:⋅")
+
+require("indent_blankline").setup {
+    buftype_exclude = {'terminal'},
+    filetype_exclude = {'nerdtree', 'startify'},
+    space_char_blankline = " ",
+
+}
+
+require"toggleterm".setup{
+  size = 12,
+  shade_filetypes = {},
+  open_mapping = [[<c-\>]],
+  direction='float',
+  float_opts = {
+      border = 'curved',
+      winblend = 0,
+      highlights = {
+          border = 'Normal',
+          background = 'Normal'
+      }
+  }
+}
+EOF
+
 " blamer
 let g:blamer_enabled = 1
 let g:blamer_delay = 500
@@ -107,7 +121,7 @@ let g:NERDTreeGitStatusIndicatorMapCustom = {
                 \ 'Unmerged'  :'═',
                 \ 'Deleted'   :'✖',
                 \ 'Dirty'     :'✗',
-                \ 'Ignored'   :'☒',
+                \ 'Ignored'   :'✕',
                 \ 'Clean'     :'✔︎',
                 \ 'Unknown'   :'?',
                 \ }
