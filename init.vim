@@ -15,11 +15,11 @@ set nocompatible " Reject Vi, be iMproved.
 call plug#begin('~/AppData/Local/nvim/plugged')
 " put plugins here
 Plug 'preservim/nerdtree'
-Plug 'mhinz/vim-startify'
 Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'chun-yang/auto-pairs'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'Valloric/vim-operator-highlight'
 Plug 'ryanoasis/vim-devicons'
 Plug 'neoclide/coc.nvim' 
 Plug 'tpope/vim-fugitive'
@@ -27,6 +27,7 @@ Plug 'akinsho/toggleterm.nvim'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'APZelos/blamer.nvim'
 Plug 'morhetz/gruvbox'
+Plug 'luochen1990/rainbow'
 Plug 'numirias/semshi'
 Plug 'romgrk/barbar.nvim'
 Plug 'kyazdani42/nvim-web-devicons'
@@ -58,12 +59,16 @@ set cursorline
 
 source ~\AppData\Local\nvim\plug-config\coc.vim 
 source $VIMRUNTIME/mswin.vim
+
 " initialize gruvbox attribute before set it as a colorscheme
 let g:gruvbox_contrast_dark='soft'
-let g:gruvbox_italic=1
+let g:gruvbox_italic = 1
 let g:gruvbox_improved_warnings = 1
 let g:gruvbox_italicize_comments = 1
 colorscheme gruvbox
+
+" operator highlight
+let g:ophigh_color_gui = '#FA4834'
 
 " toggleterm
 autocmd TermEnter term://*toggleterm#*
@@ -82,7 +87,7 @@ vim.opt.listchars:append("space:⋅")
 
 require("indent_blankline").setup {
     buftype_exclude = {'terminal'},
-    filetype_exclude = {'nerdtree', 'startify'},
+    filetype_exclude = {'nerdtree'},
     space_char_blankline = " ",
 
 }
@@ -103,6 +108,16 @@ require"toggleterm".setup{
 }
 EOF
 
+" rainbow paren
+let g:rainbow_active = 1
+let g:rainbow_conf = {
+\	'separately': {
+\		'nerdtree': 0,
+\	}
+\}
+let g:rainbow_conf = {
+\	'guifgs': ['#FFD623', '#DA71D7', '#86CFFA'],
+\}
 " blamer
 let g:blamer_enabled = 1
 let g:blamer_delay = 500
